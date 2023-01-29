@@ -4,3 +4,14 @@ main: io.github.skymin.image2particle.Image2Particle
 api-version: 1.19
 authors: [ skymin ]
 website: https://github.com/sky-min
+
+commands:
+  image2particle:
+    description: Make particle shapes by image.
+    permission: imageparticle.use.cmd
+    permission-message: You don't have permmision to use this command.
+
+permissions:
+  imageparticle.use.cmd:
+    description: Allow to use image2particle command.
+    default: op
