@@ -1,0 +1,6 @@
+name: Image2Particle
+version: 1.0.0
+main: io.github.skymin.image2particle.Image2Particle
+api-version: 1.19
+authors: [ skymin ]
+website: https://github.com/sky-min
