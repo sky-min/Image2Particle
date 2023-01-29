@@ -1,5 +1,6 @@
 name: Image2Particle
-version: 1.0.0
+version: 1.0.1
+depend: [Kotlin]
 main: io.github.skymin.image2particle.Image2Particle
 api-version: 1.19
 authors: [ skymin ]
