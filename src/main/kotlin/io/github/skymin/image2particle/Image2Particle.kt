@@ -15,14 +15,15 @@ class Image2Particle : JavaPlugin() {
 		} else {
 			dataFolder.listFiles()?.forEachIndexed { _, file ->
 				if(file !== null){
-					val image: BufferedImage
+					var image: BufferedImage? = null
 					try {
 						image = ImageIO.read(file)
 					} catch (e: IOException) {
 						logger.warning("{${e.message}} ({${file.name}})")
-						return
 					}
-					ImageParticleAPI.registerImage(file.nameWithoutExtension, image)
+					if(image !== null){
+						ImageParticleAPI.registerImage(file.nameWithoutExtension, image)
+					}
 				}
 			}
 		}
