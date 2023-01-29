@@ -14,8 +14,8 @@ class ImageParticleCommand : TabExecutor{
 		label: String,
 		args: Array<out String>?
 	): MutableList<String>? {
-		var arguments: List<String> = listOf()
-		//TODO: autocomplete
+		//var arguments: List<String> = listOf()
+		//TODO: autocompletef
 		return null
 	}
 
