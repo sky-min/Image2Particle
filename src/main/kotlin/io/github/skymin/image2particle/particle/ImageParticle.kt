@@ -16,7 +16,7 @@ class ImageParticle(
 		return name
 	}
 
-	fun encode(eulerAngle: EulerAngle, unit: Float, size: Float) {
+	fun encode(eulerAngle: EulerAngle, unit: Double, size: Float) {
 		val pos: Location = eulerAngle.getPosition()
 		val yaw = Math.toRadians(eulerAngle.getYaw())
 		val pitch = Math.toRadians(eulerAngle.getPitch())
@@ -32,8 +32,8 @@ class ImageParticle(
 		data.forEach {( x, yMap) ->
 			yMap.forEach{
 				(y, color) ->
-				val qx: Float = x * unit
-				val qy: Float = y * unit
+				val qx: Double = x * unit
+				val qy: Double = y * unit
 				val dx = qy * rsin + qx * rcos
 				val dy = qy * rcos - qx * rsin
 				val dz = dy * psin
