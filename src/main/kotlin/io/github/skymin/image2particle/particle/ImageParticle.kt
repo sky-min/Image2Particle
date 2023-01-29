@@ -16,29 +16,28 @@ class ImageParticle(
 		return name
 	}
 
-	fun encode(eulerAngle: EulerAngle, unit: Double, size: Float) {
-		val pos: Location = eulerAngle.getPosition()
-		val yaw = Math.toRadians(eulerAngle.getYaw())
-		val pitch = Math.toRadians(eulerAngle.getPitch())
-		val roll = Math.toRadians(eulerAngle.getRoll())
-
+	fun encode(euler: EulerAngle, unit: Double, size: Float) {
+		val pos: Location = euler.getPosition()
+		//yaw
+		val yaw = Math.toRadians(euler.getYaw())
 		val ysin = sin(yaw)
 		val ycos = cos(yaw)
+		//pitch
+		val pitch = Math.toRadians(euler.getPitch())
 		val psin = sin(pitch)
 		val pcos = cos(pitch)
+		//roll
+		val roll = Math.toRadians(euler.getRoll())
 		val rsin = sin(roll)
 		val rcos = cos(roll)
 
-		data.forEach {( x, yMap) ->
-			yMap.forEach{
-				(y, color) ->
-				val qx: Double = x * unit
-				val qy: Double = y * unit
-				val dx = qy * rsin + qx * rcos
-				val dy = qy * rcos - qx * rsin
+		data.forEach { (x, yMap) ->
+			yMap.forEach{ (y, color) ->
+				val dx = (y * rsin + x * rcos) * unit
+				val dy = (y * rcos - x * rsin) * unit
 				val dz = dy * psin
-				eulerAngle.getWorld().spawnParticle(
-					Particle.REDSTONE, pos.add(
+				euler.getWorld().spawnParticle(
+					Particle.REDSTONE, pos.clone().add(
 						dz * ysin + dx * ycos,
 						dy * -pcos,
 						dz * -ycos + dx * ysin
