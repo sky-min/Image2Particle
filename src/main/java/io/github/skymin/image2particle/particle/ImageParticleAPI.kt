@@ -9,7 +9,7 @@ object ImageParticleAPI {
 	private var images: MutableMap<String, ImageParticle> = mutableMapOf()
 
 	fun registerImage(name: String, image: BufferedImage) {
-		if (images[name] != null) {
+		if (images[name] !== null) {
 			throw ImageParticleException("{$name} already exists")
 		}
 		val centerX: Int = image.width / 2
@@ -37,5 +37,9 @@ object ImageParticleAPI {
 
 	fun getImageParticle(name: String): ImageParticle? {
 		return images[name]
+	}
+
+	fun getImageList() : List<String> {
+		return images.keys.toList()
 	}
 }

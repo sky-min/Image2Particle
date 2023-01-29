@@ -39,6 +39,10 @@ class EulerAngle(
 		return z
 	}
 
+	fun getPosition() : Location{
+		return Location(world, x, y, z)
+	}
+
 	fun getYaw(): Double {
 		return yaw
 	}
